@@ -1,5 +1,3 @@
-import ListWithFilters from './ListWithFilters';
+import ListWithFilter from "./ListWithFilter";
 
-export {
-  ListWithFilters
-};
+export { ListWithFilter };

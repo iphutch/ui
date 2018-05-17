@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import FontAwesome from 'react-fontawesome';
-import { Label, Input } from 'reactstrap';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import faSearch from "@fortawesome/fontawesome-free-solid/faSearch";
+import { Label, Input } from "reactstrap";
 
-class InputSearch extends Component { 
+class InputSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: this.props.value,
+      query: this.props.value
     };
     this.onChange = this.onChange.bind(this);
   }
@@ -24,12 +25,19 @@ class InputSearch extends Component {
     return (
       <div className="container-search-input">
         <Label for="searchInput">
-          <FontAwesome name="search" />
+          <FontAwesomeIcon icon={faSearch} className="header-nav-button-icon" />{" "}
         </Label>
-        <Input type="text" className="search-input" id="searchInput" value={query} placeholder={placeholder} onChange={this.onChange} />
+        <Input
+          type="text"
+          className="search-input"
+          id="searchInput"
+          value={query}
+          placeholder={placeholder}
+          onChange={this.onChange}
+        />
       </div>
-    )
-  }  
+    );
+  }
 }
 
 InputSearch.propTypes = {
@@ -37,12 +45,12 @@ InputSearch.propTypes = {
   placeholder: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
-  classNames: PropTypes.array,
+  classNames: PropTypes.array
 };
 
 InputSearch.defaultProps = {
-  placeholder: 'Search...',
-  query: '',
+  placeholder: "Search...",
+  query: ""
 };
 
 export default InputSearch;

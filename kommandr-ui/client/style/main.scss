@@ -1,7 +1,7 @@
 @import 'variables';
 .no-scroll {
   height: 100%;
-  overflow: hidden;
+
   width: 100%;
   main { 
     border: 0;
@@ -11,18 +11,24 @@
 }
 
 body {
-  height: inherit;
-  width: inherit;
-  overflow: inherit;
+  font-family: 'Lato', sans-serif;
   margin-bottom: 75px;
 }
 
-#root, .app, main {
-  height: inherit;
+h1,h2 {
+  font-weight: 900;
+  svg {
+    margin-right: 0.2em;
+    width: 0.7em!important;
+    color: $light-jade;
+  }
 }
-.app{
-  display: flex;
-  flex-direction: column;
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.9rem;
 }
 /*
  HEADER
@@ -32,11 +38,18 @@ main {
   background-color: white;
   padding: 15px 0;
 }
+
+
 header {
+
   background-color: $header-bg;
   border-bottom: 1px solid $header-border-color;
   color: $header-font-color;
-  height: $header-height;
+   
+  .logo {
+    height: 40px;
+  }
+
   .btn-link {
     color: $header-link-color;
     &:hover {
@@ -50,13 +63,96 @@ header {
       color: $header-link-color;
     }
   }
+
+  .header-nav-button {
+    &:hover {
+      background-color:lighten($header-bg, 10%);
+    }
+    .header-nav-button-icon {
+      margin-right: 5px;
+    }
+  }
+
   .header-links {
     .fa {
       font-size: 1.3rem;
     }
   }
-
 }
+
+.search {
+  border: 1px solid $light-gray;
+  input {
+    border: 0;
+  }
+}
+.main-commands {
+  .command-list {
+    border-top: 1px solid $light-gray;
+  }
+  .command {
+    border-bottom: 1px solid $light-gray;
+    .command-title {
+      & a {
+        color: black;
+      }
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+    .command-info {
+      color: $ultra-light-dark;
+      line-height: 1rem;
+    }
+    .command-content {
+      border: 1px solid $light-gray;
+      margin: 5px 0;
+      padding: 5px;
+    }
+  }
+}
+
+/*
+Tally
+*/
+.tally-container {
+  color: #999;
+  font-size: 0.9rem; 
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+  }
+  
+  .input-group-addon {
+    background-color: white;
+  }
+}
+
+
+
+
+
+.filter-bar {
+  border-bottom: 1px solid $light-gray;
+
+  ul.nav {
+    li {
+      margin-bottom: -1px;
+    }
+    a {
+      border-bottom: transparent solid 3px;
+    }
+    a:hover {
+      border-bottom: 3px solid $light-jade;
+    }
+  }
+}
+
+
+
+
 .modal-login {
   ul.oauth-providers {
     list-style-type: none;
@@ -83,44 +179,7 @@ a {
   }
 }
 
-.inline-stats, .inline-actions {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  li {
-    display: inline-block;
-    margin-right: 0.8rem;
-    text-align: center;
-    &:last-child {
-      margin: 0;
-    }
-  }
-}
 
-.inline-stats {
-  color: #999;
-  font-size: 0.9rem; 
-  li {
-    .full {
-      button {
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        color: black;
-        cursor: pointer;
-        text-decoration: none!important;
-        &:hover {
-          color: black;
-        }
-      }
-    }
-    .compact {
-      font-size: 0.8rem;
-    }
-  }
-  
-  .input-group-addon {
-    background-color: white;
-  }
-}
 
 .CodeMirror {
   font-family: 'Ubuntu Mono', monospace!important;
@@ -227,46 +286,6 @@ a {
     {
       background-color: $scrollbar-color;
       border: none;
-    }
-  }
-}
-
-
-.list-kommandrs { 
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-
-  .kommandr-item {
-    padding: 0.5rem 1rem;
-    width: 100%;
-  
-    h6 { 
-      font-size: 1rem;
-      margin-bottom: 0.15rem;
-    }
-    
-    .CodeMirror {
-      font-size: 1.1rem;
-      height: initial;
-    }
-    &.compact {
-      .kommandr-stats {
-        font-size: 0.8rem;
-      }
-    }
-  
-    .kommandr-author {
-      border-top: 1px solid #EEEEEE;
-      margin-top: 1rem;
-      padding-top: 1rem;
-    }
-  
-    .kommandr-description {
-      textarea, p {
-        width: 100%;
-        white-space: pre;
-      }
     }
   }
 }

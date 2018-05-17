@@ -1,42 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import ApolloCLient from 'apollo-client';
-import {
-  ApolloProvider,
-  createNetworkInterface
-} from 'react-apollo';
+import ApolloCLient from "apollo-client";
+import { ApolloProvider, createNetworkInterface } from "react-apollo";
 
-/*
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import { Provider } from 'react-redux';
-*/
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import App from './containers/App';
-//import reducer from './redux/reducers';
+import App from "./containers/App";
 
-import 'bootstrap/dist/css/bootstrap.css';
-import './style/main.scss';
-import 'codemirror/lib/codemirror.css';
-
-/*
-const middleware = [ thunkMiddleware ];
-middleware.push(createLogger());
-const store = createStore(reducer, applyMiddleware(...middleware));
-*/
+import "bootstrap/dist/css/bootstrap.css";
+import "./style/main.scss";
+import "codemirror/lib/codemirror.css";
 
 const networkInterface = createNetworkInterface({
   opts: {
-    credentials: 'include'
+    credentials: "include"
   },
-  uri: 'http://localhost:5001/graphql'
+  uri: "http://localhost:5001/graphql"
 });
 
-const client = new ApolloCLient({ 
+const client = new ApolloCLient({
   networkInterface: networkInterface,
-  dataIdFromObject: o => o.__typename + ':' +  o.id
+  dataIdFromObject: o => o.__typename + ":" + o.id
 });
 
 ReactDOM.render(
@@ -45,5 +30,5 @@ ReactDOM.render(
       <Route path="/" component={App} />
     </Router>
   </ApolloProvider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

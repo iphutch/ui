@@ -1,7 +1,3 @@
-import { InputUsername, InputWebsite, InputName } from './Input';
+import InputSearch from "./InputSearch";
 
-export { 
-  InputUsername,
-  InputWebsite,
-  InputName
-};
+export { InputSearch };
