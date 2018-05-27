@@ -110,7 +110,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "kommandr-ui/**/*.{js,jsx}"
+      "src/**/*.{js,jsx}"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
