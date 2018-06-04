@@ -34,7 +34,6 @@ class Header extends Component {
   */
 
   render() {
-    const { isOpenModalLogin } = this.state;
     return (
       <header>
         <div className="container">
@@ -51,15 +50,6 @@ class Header extends Component {
                       className="header-nav-button-icon"
                     />
                     Commands
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/manpages" className="header-nav-button">
-                    <FontAwesomeIcon
-                      icon={faBook}
-                      className="header-nav-button-icon"
-                    />
-                    Manual pages
                   </NavLink>
                 </NavItem>
               </Nav>

@@ -101,7 +101,7 @@ header {
     border-top: 1px solid $light-gray;
   }
   .command {
-    border-bottom: 1px solid $light-gray;
+    padding: 0.5rem 0;
     .command-title {
       & a {
         color: black;
@@ -109,34 +109,33 @@ header {
       font-weight: 900;
       margin-bottom: 5px;
     }
-    .command-info {
-      color: $ultra-light-dark;
-      line-height: 1rem;
-    }
-    .command-content {
-      border: 1px solid $light-gray;
-      font-family: monospace;
-      margin: 5px 0;
-      padding: 5px;
-    }
+  }
+}
+.main-commands, .view-command {
+  .command-content {
+    font-size: 1.1em;
+    padding: 0.5em 0.7em;
+  }
+  .command-info {
+    color: $ultra-light-dark;
+    line-height: 1rem;
   }
 }
 
 /*
-Tally
+Label
 */
-.tally-container {
-  color: #999;
+.label-container {
   font-size: 0.9rem; 
   list-style-type: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
   li {
     display: inline-block;
+    margin-right: 10px;
   }
-  
-  .input-group-addon {
-    background-color: white;
+  .label-icon {
+    margin-right: 5px;
   }
 }
 

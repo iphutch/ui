@@ -1,7 +1,6 @@
 import React from "react";
 import { Query } from "react-apollo";
-import Command from "./Command";
-
+import CommandPreview from "./CommandPreview";
 import gql from "graphql-tag";
 
 const COMMANDS_QUERY = gql`
@@ -9,6 +8,7 @@ const COMMANDS_QUERY = gql`
     commands(query: $query) {
       id
       title
+      slugTitle
       rawContent
       forkFrom
       totalViews
@@ -33,7 +33,7 @@ const CommandList = ({ query }) => {
         if (loading) return "loading...";
         if (error) return "Error";
         return commands.map((command, idx) => (
-          <Command key={idx} command={command} />
+          <CommandPreview key={command.id} command={command} />
         ));
       }}
     </Query>

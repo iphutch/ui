@@ -1,46 +1,47 @@
 import React from "react";
-import "prismjs";
-import "./prism-bash.js";
-import PrismCode from "react-prism";
-import { Tally, TallyMetric } from "../Tally";
-import { Platform } from "../Platform";
-import "prismjs/themes/prism-okaidia.css";
+import PropTypes from "prop-types";
+import CommandContent from "./CommandContent";
+import {
+  LabelContainer,
+  LabelPlatform,
+  LabelDate,
+  LabelMetric
+} from "../Label";
+import { Program } from "../Program";
+
 const CommandTitle = ({ children }) => {
-  return <h4 className="command-title">{children}</h4>;
+  return <h2 className="command-title">{children}</h2>;
 };
 
 const CommandInfo = ({ children }) => {
   return <div className="command-info">{children}</div>;
 };
 
-const CommandContent = ({ platform, children }) => {
-  var language = platform === "windows" ? "powershell" : "bash";
-  return (
-    <PrismCode component="pre" className={`language-${language}`}>
-      {children}
-    </PrismCode>
-  );
-};
-
-const Command = ({ command }) => {
+const Command = ({ command, mode }) => {
   return (
     <div className="command mt-2 mb-2">
       <CommandTitle>
-        <a href="">@{command.author.username}</a> /
-        <a href="#">{command.title}</a>
+        @{command.author.username} / {command.title}
       </CommandTitle>
-
       <CommandContent>{command.rawContent}</CommandContent>
-
       <CommandInfo>
-        <Tally>
-          <TallyMetric type="view" value={5} />
-          <TallyMetric type="view" value={5} />
-        </Tally>
-        <Platform name={command.program.platformName} />
+        <LabelContainer inline={true}>
+          <LabelDate timestamp={command.createdAt} />
+          <LabelPlatform platform={command.program.platformName} />
+          <LabelMetric metric="views" value={command.totalViews} />
+        </LabelContainer>
       </CommandInfo>
+      <Program program={command.program} />
     </div>
   );
 };
 
+Command.propTypes = {
+  command: PropTypes.object,
+  mode: PropTypes.string
+};
+
+Command.defaultProps = {
+  mode: "compact"
+};
 export default Command;
