@@ -5,25 +5,30 @@ import gql from "graphql-tag";
 import { ManPage } from "../components/ManPage";
 
 const MANPAGE_QUERY = gql`
-  query manPage($name: String!) {
-    manPage(name: $name) {
+  query program($platformName: String, $name: String!) {
+    program(platformName: $platformName, name: $name) {
       id
       name
-      source
-      nestedCommand
-      paragraphs {
-        idx
-        short
-        long
-        expectsarg
+      cliName
+      manPage {
+        id
+        name
+        source
         nestedCommand
-        text
-        section
-        argument
-        is_option
+        paragraphs {
+          idx
+          short
+          long
+          expectsarg
+          nestedCommand
+          text
+          section
+          argument
+          is_option
+        }
+        multicommand
+        partialmatch
       }
-      multicommand
-      partialmatch
     }
   }
 `;
@@ -31,10 +36,10 @@ const ViewManPage = ({ match }) => {
   return (
     <div className="view-manpage">
       <Query query={MANPAGE_QUERY} variables={match.params}>
-        {({ loading, error, data: { manPage } }) => {
+        {({ loading, error, data: { program } }) => {
           if (loading) return "Loading";
           if (error) return `Error!: ${error}`;
-          return <ManPage manPage={manPage} mode="view" />;
+          return <ManPage program={program} mode="view" />;
         }}
       </Query>
     </div>

@@ -7,10 +7,17 @@ import SimilarPrograms from "./SimilarPrograms";
 const Program = ({ program }) => {
   return (
     <div className="program-details mt-3">
-      <ProgramTitle name={program.cliName} manPage={program.manPage} />
+      <ProgramTitle
+        name={program.name}
+        cliName={program.cliName}
+        platformName={program.platformName}
+      />
       <ProgramDescription description={program.shortDescription} />
       <ProgramCommands program={program.name} />
-      <SimilarPrograms program={program.name} />
+      <SimilarPrograms
+        program={program.cliName}
+        platformName={program.platformName}
+      />
     </div>
   );
 };

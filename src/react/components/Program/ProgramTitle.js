@@ -3,22 +3,21 @@ import PropTypes from "prop-types";
 import { Button, Badge } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const ProgramTitle = ({ name, manPage }) => {
+const ProgramTitle = ({ name, platformName, cliName }) => {
   return (
     <h3>
       Program {name}{" "}
-      {manPage && (
-        <Button color="link" tag={Link} to={`/manpages/${manPage.name}`}>
-          <Badge color="success">view manual page</Badge>
-        </Button>
-      )}
+      <Button color="link" tag={Link} to={`/manpages/${platformName}/${name}`}>
+        <Badge color="success">view manual page</Badge>
+      </Button>
     </h3>
   );
 };
 
 ProgramTitle.propTypes = {
   name: PropTypes.string,
-  manPage: PropTypes.object
+  cliName: PropTypes.string,
+  platformName: PropTypes.string
 };
 
 export default ProgramTitle;

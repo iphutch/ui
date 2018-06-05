@@ -3,16 +3,18 @@ import PropTypes from "prop-types";
 import ManPageTitle from "./ManPageTitle";
 import ManPageParagraphs from "./ManPageParagraphs";
 
-const ManPage = ({ manPage, mode }) => {
+const ManPage = ({ program, mode }) => {
   return (
     <Fragment>
-      <ManPageTitle title={manPage.name} />
-      <ManPageParagraphs paragraphs={manPage.paragraphs} />
+      <ManPageTitle title={program.name} />
+      {program.manPage && (
+        <ManPageParagraphs paragraphs={program.manPage.paragraphs} />
+      )}
     </Fragment>
   );
 };
 ManPage.propTypes = {
-  manPage: PropTypes.object,
+  program: PropTypes.object,
   mode: PropTypes.string
 };
 

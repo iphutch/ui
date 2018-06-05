@@ -29,7 +29,6 @@ const CommandPreview = ({ command, mode }) => {
       {mode !== "minimal" && (
         <Fragment>
           <CommandContent>{command.rawContent}</CommandContent>
-
           <CommandInfo>
             <LabelContainer inline={true}>
               <LabelDate timestamp={command.createdAt} />

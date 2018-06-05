@@ -16,7 +16,7 @@ const App = props => {
         <Switch>
           <Route path="/" exact component={MainCommands} />
           <Route path="/@:username/:slugTitle" component={ViewCommand} />
-          <Route path="/manpages/:name" component={ViewManPage} />
+          <Route path="/manpages/:platformName/:name" component={ViewManPage} />
         </Switch>
       </Container>
     </Fragment>
