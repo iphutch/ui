@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faTwitter from "@fortawesome/fontawesome-free-brands/faTwitter";
 import faTerminal from "@fortawesome/fontawesome-free-solid/faTerminal";
-import faBook from "@fortawesome/fontawesome-free-solid/faBook";
 import { Link, withRouter } from "react-router-dom";
 import {
   Collapse,
