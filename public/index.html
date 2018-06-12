@@ -20,22 +20,6 @@
     <title>Kommandr.com</title>
   </head>
   <body>
-    <script>
-      var host = window.location.hostname;
-      if(host !== "localhost") {
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '506158959757866',
-            cookie     : true,
-            xfbml      : true,
-            version    : '2.11'
-          });
-            
-          FB.AppEvents.logPageView();   
-            
-        };
-      }
-    </script>
     <div id="root"></div>
 
 
