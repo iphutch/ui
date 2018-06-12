@@ -10,7 +10,7 @@ import "../style/main.scss";
 import "codemirror/lib/codemirror.css";
 
 const client = new ApolloCLient({
-  uri: "http://192.168.99.100:5001/graphql"
+  uri: "http://api-graphql:5001/graphql"
 });
 
 ReactDOM.render(
