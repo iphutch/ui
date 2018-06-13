@@ -1,8 +1,7 @@
 FROM node:8
-RUN apt-get update && apt-get install -y
 USER node
-RUN mkdir /home/node/app
-WORKDIR /home/node/app
+RUN mkdir /home/node/ui
+WORKDIR /home/node/ui
 COPY package*.json ./
 ENV PATH=/home/node/.npm-global/bin:$PATH
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global

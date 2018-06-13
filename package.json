@@ -2,7 +2,7 @@
   "name": "kommandr",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://kommandr-api-graphql:5001",
+  "proxy": "http://kommandr-api:5001",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-brands": "^5.0.13",
