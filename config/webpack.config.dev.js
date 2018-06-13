@@ -226,5 +226,12 @@ module.exports = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
+  },
+	devServer: {
+    proxy: {
+      '/graphql': {
+        target: 'http://kommandr-api-graphql:5001'
+      }
+    }
   }
 };
