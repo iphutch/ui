@@ -9,31 +9,35 @@ const Paragraph = ({ p }) => {
 const Section = ({ name, paragraphs }) => {
   var sectionParagraphs = paragraphs.map((p, idx) => {
     return (
-      <div className="section-paragraphs">
+      <div className="section-paragraphs" key={idx}>
         <Paragraph p={p} />
       </div>
     );
   });
   return (
     <div className={`manpage-section-${name.toLowerCase().replace(/ /g, "-")}`}>
-      <h3>{name}</h3>
+      <h2>{name}</h2>
       {sectionParagraphs}
     </div>
   );
 };
 
 const ManPageParagraphs = ({ paragraphs }) => {
-  var sections = _.uniq(_.pluck(paragraphs, "section"));
-  sections = sections.map((section, idx) => {
-    return (
-      <Section
-        name={section}
-        paragraphs={_.where(paragraphs, { section })}
-        key={idx}
-      />
-    );
+  var optionsParagraphs = _.where(paragraphs, {
+    is_option: true,
+    section: "OPTIONS"
   });
-  return <Fragment>{sections}</Fragment>;
+  var subcommandsParagraphs = _.where(paragraphs, { section: "COMMANDS" });
+  return (
+    <Fragment>
+      {optionsParagraphs && (
+        <Section name="Options" paragraphs={optionsParagraphs} />
+      )}
+      {subcommandsParagraphs && (
+        <Section name="Subcommands" paragraphs={subcommandsParagraphs} />
+      )}
+    </Fragment>
+  );
 };
 ManPageParagraphs.propTypes = {
   manPage: PropTypes.object,

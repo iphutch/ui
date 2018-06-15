@@ -5,8 +5,8 @@ import { CommandPreview } from "../Command";
 import gql from "graphql-tag";
 
 const COMMANDS_QUERY = gql`
-  query commands($query: String) {
-    commands(query: $query) {
+  query commands($name: String) {
+    commands(name: $name) {
       id
       title
       slugTitle
@@ -25,16 +25,16 @@ const COMMANDS_QUERY = gql`
     }
   }
 `;
-const ProgramCommands = ({ program }) => {
+const ProgramCommands = ({ program, mode }) => {
   return (
     <div className="similar-commands mt-2">
-      <h3>Similar Commands</h3>
-      <Query query={COMMANDS_QUERY} variables={{ query: program }}>
+      <h2> Recommended Commands </h2>{" "}
+      <Query query={COMMANDS_QUERY} variables={{ name: program }}>
         {({ loading, error, data: { commands } }) => {
           if (loading) return "Loading";
           if (error) return `Error: ${error}`;
           return commands.map((command, idx) => (
-            <CommandPreview key={command.id} command={command} mode="minimal" />
+            <CommandPreview key={command.id} command={command} mode={mode} />
           ));
         }}
       </Query>
@@ -43,7 +43,12 @@ const ProgramCommands = ({ program }) => {
 };
 
 ProgramCommands.propTypes = {
-  program: PropTypes.string
+  program: PropTypes.string,
+  mode: PropTypes.string
+};
+
+ProgramCommands.defaultProps = {
+  mode: "minimal"
 };
 
 export default ProgramCommands;

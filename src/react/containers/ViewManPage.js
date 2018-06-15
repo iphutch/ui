@@ -10,6 +10,17 @@ const MANPAGE_QUERY = gql`
       id
       name
       cliName
+      shortDescription
+      commands {
+        id
+        rawContent
+        title
+        createdAt
+        totalViews
+        author {
+          username
+        }
+      }
       manPage {
         id
         name

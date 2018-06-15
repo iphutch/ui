@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Query } from "react-apollo";
 import CommandPreview from "./CommandPreview";
 import gql from "graphql-tag";
 
 const COMMANDS_QUERY = gql`
-  query commands($query: String) {
-    commands(query: $query) {
+  query commands($query: String, $name: String) {
+    commands(query: $query, name: $name) {
       id
       title
       slugTitle
@@ -26,9 +27,10 @@ const COMMANDS_QUERY = gql`
   }
 `;
 
-const CommandList = ({ query }) => {
+const CommandList = ({ query, name }) => {
+  console.log(query);
   return (
-    <Query query={COMMANDS_QUERY} variables={query}>
+    <Query query={COMMANDS_QUERY} variables={{ query, name }}>
       {({ loading, error, data: { commands } }) => {
         if (loading) return "loading...";
         if (error) return "Error";
@@ -38,6 +40,16 @@ const CommandList = ({ query }) => {
       }}
     </Query>
   );
+};
+
+CommandList.propTypes = {
+  query: PropTypes.string,
+  name: PropTypes.string
+};
+
+CommandList.defaultProps = {
+  query: "",
+  name: ""
 };
 
 export default CommandList;

@@ -25,7 +25,7 @@ class ListWithFilter extends Component {
           value={query}
           onChange={this.onChange}
         />
-        {this.props.render(this.state)}
+        {this.props.render(this.state.query)}
       </div>
     );
   }

@@ -5,7 +5,8 @@ import {
   LabelContainer,
   LabelPlatform,
   LabelDate,
-  LabelMetric
+  LabelMetric,
+  LabelUser
 } from "../Label";
 import { Program } from "../Program";
 
@@ -21,11 +22,12 @@ const Command = ({ command, mode }) => {
   return (
     <div className="command mt-2 mb-2">
       <CommandTitle>
-        @{command.author.username} / {command.title}
+        {command.program.name} / {command.title}
       </CommandTitle>
       <CommandContent>{command.rawContent}</CommandContent>
       <CommandInfo>
         <LabelContainer inline={true}>
+          <LabelUser user={command.author} />
           <LabelDate timestamp={command.createdAt} />
           <LabelPlatform platform={command.program.platformName} />
           <LabelMetric metric="views" value={command.totalViews} />

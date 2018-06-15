@@ -23,7 +23,7 @@ const SIMILAR_PROGRAMS_QUERY = gql`
 const SimilarPrograms = ({ program, platformName }) => {
   return (
     <div className="similar-commands">
-      <h3>Similar Programs</h3>
+      <h2>Recommended Programs</h2>
       <Query
         query={SIMILAR_PROGRAMS_QUERY}
         variables={{ cliName: program, platformName, k: 6 }}
