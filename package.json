@@ -2,7 +2,7 @@
   "name": "kommandr",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://kommandr-api:5001",
+  "proxy": "http://localhost:5001",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-brands": "^5.0.13",
@@ -31,6 +31,7 @@
     "nodemon": "^1.17.5",
     "normalizr": "^3.2.4",
     "prismjs": "^1.14.0",
+    "prop-types": "^15.6.1",
     "qs": "^6.5.2",
     "react": "^16.4.0",
     "react-ace": "^5.10.0",
