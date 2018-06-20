@@ -1,14 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, Badge } from "reactstrap";
+import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const ProgramTitle = ({ name, platformName, cliName }) => {
   return (
     <h2>
       Program {name}{" "}
-      <Button color="link" tag={Link} to={`/manpages/${platformName}/${name}`}>
-        <Badge color="success">view manual page</Badge>
+      <Button
+        color="success"
+        size="sm"
+        tag={Link}
+        to={`/manpages/${platformName}/${name}`}
+      >
+        view manual page
       </Button>
     </h2>
   );

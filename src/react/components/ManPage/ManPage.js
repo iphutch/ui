@@ -11,7 +11,7 @@ class ManPage extends Component {
   }
 
   render() {
-    const { program, mode } = this.props;
+    const { program } = this.props;
     return (
       <Fragment>
         <ManPageTitle title={program.name} />
@@ -26,8 +26,7 @@ class ManPage extends Component {
 }
 
 ManPage.propTypes = {
-  program: PropTypes.object,
-  mode: PropTypes.string
+  program: PropTypes.object
 };
 
 export default ManPage;
