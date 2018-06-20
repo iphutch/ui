@@ -13,25 +13,7 @@ import {
   NavLink
 } from "reactstrap";
 
-//import { ModalLogin } from "../Modal";
-
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpenModalLogin: false
-    };
-    //this.handleToggleModalLogin = this.handleToggleModalLogin.bind(this);
-  }
-
-  /*
-  handleToggleModalLogin() {
-    this.setState({
-      isOpenModalLogin: !this.state.isOpenModalLogin
-    });
-  }
-  */
-
   render() {
     return (
       <header>
@@ -60,6 +42,16 @@ class Header extends Component {
                   >
                     <FontAwesomeIcon icon={faTwitter} />
                   </NavLink>
+                </NavItem>
+                <NavItem>
+                  <a
+                    className="github-button"
+                    href="https://github.com/kommandr/kommandr"
+                    data-size="large"
+                    aria-label="Star kommandr/kommandr on GitHub"
+                  >
+                    Star
+                  </a>
                 </NavItem>
               </Nav>
             </Collapse>
