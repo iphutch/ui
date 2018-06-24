@@ -2,11 +2,11 @@ import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Container } from "reactstrap";
 import PropTypes from "prop-types";
-
 import Header from "../components/Header/Header";
 import MainCommands from "./MainCommands";
 import ViewManPage from "./ViewManPage";
 import ViewCommand from "./ViewCommand";
+import NoMatch from "./NoMatch";
 
 const App = props => {
   return (
@@ -17,6 +17,7 @@ const App = props => {
           <Route path="/" exact component={MainCommands} />
           <Route path="/@:username/:slugTitle" component={ViewCommand} />
           <Route path="/manpages/:platformName/:name" component={ViewManPage} />
+          <Route component={NoMatch} />
         </Switch>
       </Container>
     </Fragment>

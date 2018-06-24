@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { Query } from "react-apollo";
 import CommandPreview from "./CommandPreview";
 import gql from "graphql-tag";
+import _ from "underscore";
 
 const COMMANDS_QUERY = gql`
-  query commands($query: String, $name: String) {
-    commands(query: $query, name: $name) {
+  query commands($title: String, $programs: [String], $platforms: [String]) {
+    commands(title: $title, programs: $programs, platforms: $platforms) {
       id
       title
       slugTitle
@@ -28,9 +29,23 @@ const COMMANDS_QUERY = gql`
 `;
 
 const CommandList = ({ query, name }) => {
-  console.log(query);
+  var title = _.findWhere(query, { key: undefined });
+  if (title !== undefined) {
+    title = title.value;
+  } else {
+    title = "";
+  }
+
+  //let programs = _.pluck(_.where(query, { key: "program" }), "value");
+  //let platforms = _.pluck(_.where(query, { key: "platform" }), "value");
+  const programs = query.filter(q => q.key === "program").map(q => q.value);
+  const platforms = query.filter(q => q.key === "platform").map(q => q.value);
+
   return (
-    <Query query={COMMANDS_QUERY} variables={{ query, name }}>
+    <Query
+      query={COMMANDS_QUERY}
+      variables={{ title: title, programs, platforms }}
+    >
       {({ loading, error, data: { commands } }) => {
         if (loading) return "loading...";
         if (error) return "Error";
@@ -43,12 +58,12 @@ const CommandList = ({ query, name }) => {
 };
 
 CommandList.propTypes = {
-  query: PropTypes.string,
+  query: PropTypes.array,
   name: PropTypes.string
 };
 
 CommandList.defaultProps = {
-  query: "",
+  query: [],
   name: ""
 };
 

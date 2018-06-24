@@ -5,8 +5,8 @@ import { CommandPreview } from "../Command";
 import gql from "graphql-tag";
 
 const COMMANDS_QUERY = gql`
-  query commands($name: String) {
-    commands(name: $name) {
+  query commands($programs: [String]) {
+    commands(programs: $programs) {
       id
       title
       slugTitle
@@ -29,7 +29,7 @@ const ProgramCommands = ({ program, mode }) => {
   return (
     <div className="similar-commands mt-2">
       <h2> Recommended Commands </h2>{" "}
-      <Query query={COMMANDS_QUERY} variables={{ name: program }}>
+      <Query query={COMMANDS_QUERY} variables={{ programs: [program] }}>
         {({ loading, error, data: { commands } }) => {
           if (loading) return "Loading";
           if (error) return `Error: ${error}`;

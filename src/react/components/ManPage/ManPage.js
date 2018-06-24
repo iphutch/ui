@@ -16,7 +16,7 @@ class ManPage extends Component {
       <Fragment>
         <ManPageTitle title={program.name} />
         <ProgramDescription description={program.shortDescription} />
-        <ProgramCommands program={program.name} mode="compact" />
+        <ProgramCommands program={program.cliName} mode="compact" />
         {program.manPage && (
           <ManPageParagraphs paragraphs={program.manPage.paragraphs} />
         )}

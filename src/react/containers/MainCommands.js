@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faTerminal from "@fortawesome/fontawesome-free-solid/faTerminal";
 import { CommandList } from "../components/Command";
-import { ListWithFilter } from "../components/List";
+import { ListWithFilterV2 } from "../components/List";
 
 class Content extends Component {
   componentDidMount() {
@@ -19,7 +19,7 @@ class Content extends Component {
           />{" "}
           Commands
         </h2>
-        <ListWithFilter render={query => <CommandList query={query} />} />
+        <ListWithFilterV2 render={query => <CommandList query={query} />} />
       </div>
     );
   }
