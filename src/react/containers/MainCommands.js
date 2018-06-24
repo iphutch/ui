@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faTerminal from "@fortawesome/fontawesome-free-solid/faTerminal";
 import { CommandList } from "../components/Command";
-import { ListWithFilterV2 } from "../components/List";
+import { ListWithFilter } from "../components/List";
 
 class Content extends Component {
   componentDidMount() {
     document.title = "Commands - kommandr.com";
   }
-
   render() {
     return (
       <div className="main-commands">
@@ -19,7 +18,7 @@ class Content extends Component {
           />{" "}
           Commands
         </h2>
-        <ListWithFilterV2 render={query => <CommandList query={query} />} />
+        <ListWithFilter render={query => <CommandList query={query} />} />
       </div>
     );
   }
