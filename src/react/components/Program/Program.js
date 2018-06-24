@@ -16,7 +16,7 @@ const Program = ({ program }) => {
       <ProgramDescription description={program.shortDescription} />
       <Row>
         <Col sm="6" xs="12">
-          <ProgramCommands program={program.name} />
+          <ProgramCommands program={program.cliName} />
         </Col>
         <Col sm="6" xs="12">
           <SimilarPrograms

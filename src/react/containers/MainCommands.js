@@ -8,7 +8,6 @@ class Content extends Component {
   componentDidMount() {
     document.title = "Commands - kommandr.com";
   }
-
   render() {
     return (
       <div className="main-commands">

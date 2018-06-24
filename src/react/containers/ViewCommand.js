@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Command } from "../components/Command";
+import NoMatch from "./NoMatch";
 
 const COMMAND_QUERY = gql`
   query command($username: String!, $slugTitle: String!) {
@@ -38,7 +39,11 @@ const ViewCommand = ({ match }) => {
         {({ loading, error, data: { command } }) => {
           if (loading) return "Loading";
           if (error) return `Error!: ${error}`;
-          return <Command command={command} mode="view" />;
+          if (command === null) {
+            return <NoMatch />;
+          } else {
+            return <Command command={command} mode="view" />;
+          }
         }}
       </Query>
     </div>

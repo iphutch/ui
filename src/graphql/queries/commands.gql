@@ -1,7 +1,0 @@
-query commands($query: String!) {
-  commands(query: $query) {
-    id
-    title
-    rawContent
-  }
-}
