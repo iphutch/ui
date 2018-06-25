@@ -4,13 +4,12 @@ import ApolloCLient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { App } from "./containers";
-
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/main.scss";
 import "codemirror/lib/codemirror.css";
 
 const client = new ApolloCLient({
-  uri: "/graphql"
+  uri: `${process.env.KMDR_API_ENDPOINT || ""}/graphql`
 });
 
 ReactDOM.render(
