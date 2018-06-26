@@ -8,21 +8,25 @@ import faApple from "@fortawesome/fontawesome-free-brands/faApple";
 import faExchangeAlt from "@fortawesome/fontawesome-free-solid/faExchangeAlt";
 
 const LabelPlatform = ({ platform }) => {
-  var icon;
+  var icon, title;
   switch (platform) {
     case "linux":
       icon = <FontAwesomeIcon icon={faLinux} />;
+      title = "Runs on Linux";
       break;
     case "windows":
       icon = <FontAwesomeIcon icon={faWindows} />;
+      title = "Runs on Windows";
       break;
     case "macos":
       icon = <FontAwesomeIcon icon={faApple} />;
+      title = "Runs on macOS";
       break;
     default:
       icon = <FontAwesomeIcon icon={faExchangeAlt} />;
+      title = "Could be run on many OS's";
   }
-  return <Label icon={icon} text={platform} />;
+  return <Label icon={icon} text={platform} title={title} />;
 };
 
 LabelPlatform.propTypes = {
