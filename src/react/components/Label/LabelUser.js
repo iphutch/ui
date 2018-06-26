@@ -8,8 +8,8 @@ const LabelUser = ({ user }) => {
   return (
     <Label
       icon={<FontAwesomeIcon icon={faUser} />}
-      text={user.username}
-      title={user.username}
+      text={`@${user.username}`}
+      title={`Authored by @${user.username}`}
     />
   );
 };

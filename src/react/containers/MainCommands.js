@@ -4,6 +4,12 @@ import faTerminal from "@fortawesome/fontawesome-free-solid/faTerminal";
 import { CommandList } from "../components/Command";
 import { ListWithFilter } from "../components/List";
 
+const sortByOptions = [
+  { label: "Top", key: "most_popular" },
+  { label: "Newest", key: "newest" },
+  { label: "Oldest", key: "oldest" }
+];
+
 class Content extends Component {
   componentDidMount() {
     document.title = "Commands - kommandr.com";
@@ -16,9 +22,15 @@ class Content extends Component {
             icon={faTerminal}
             className="header-nav-button-icon"
           />{" "}
-          Commands
+          Search Commands
         </h2>
-        <ListWithFilter render={query => <CommandList query={query} />} />
+        <ListWithFilter
+          render={(query, sortBy) => (
+            <CommandList query={query} sortBy={sortBy} />
+          )}
+          sortByOptions={sortByOptions}
+          sortBy="most_popular"
+        />
       </div>
     );
   }
