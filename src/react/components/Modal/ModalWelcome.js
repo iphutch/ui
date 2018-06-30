@@ -28,8 +28,8 @@ class ModalWelcome extends Component {
             commands.
           </p>
           <p>
-            This project is under development. Contact us contact@kommandr.com
-            and star the project at{" "}
+            This project is under development. You can contact us
+            contact@kommandr.com and find us on{" "}
             <a href="https://github.com/kommandr/kommandr">github.com</a>
           </p>
         </ModalBody>
