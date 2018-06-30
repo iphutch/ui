@@ -28,7 +28,9 @@ const COMMANDS_QUERY = gql`
 const ProgramCommands = ({ program, mode }) => {
   return (
     <div className="similar-commands mt-2">
-      <h3>Related Commands</h3>
+      <a name="related-commands">
+        <h3>Related Commands</h3>
+      </a>
       <p>More commands from the {program} program</p>
       <Query query={COMMANDS_QUERY} variables={{ programs: [program] }}>
         {({ loading, error, data: { commands } }) => {

@@ -7,6 +7,9 @@ import MainCommands from "./MainCommands";
 import ViewManPage from "./ViewManPage";
 import ViewCommand from "./ViewCommand";
 import NoMatch from "./NoMatch";
+import { ModalWelcome } from "../components/Modal";
+
+const hasSeenWelcome = document.cookie.includes("hasSeenWelcome");
 
 const App = props => {
   return (
@@ -19,6 +22,7 @@ const App = props => {
           <Route path="/manpages/:platformName/:name" component={ViewManPage} />
           <Route component={NoMatch} />
         </Switch>
+        {!hasSeenWelcome && <ModalWelcome />}
       </Container>
     </Fragment>
   );

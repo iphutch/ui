@@ -16,6 +16,7 @@ const ManPageParagraphs = ({ paragraphs }) => {
   );
   return (
     <Fragment>
+      <a name="usage" />
       {sypnopsysParagraphs.length > 0 && (
         <ManPageSection
           name="Synopsis"
