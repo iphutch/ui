@@ -22,7 +22,7 @@ class ModalWelcome extends Component {
         <ModalHeader>Welcome to Kommandr!</ModalHeader>
         <ModalBody>
           <p>
-            Kommandr is an open source project with an ambicious mission to help
+            Kommandr is an open source project with an ambitious mission to help
             developers, SysAdmins, and students learn how to use the
             command-line interface, document and share their most useful
             commands.
